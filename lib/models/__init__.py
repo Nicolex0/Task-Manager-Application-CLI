@@ -1,9 +1,5 @@
-from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+import sqlite3
 
 DATABASE_URL = "sqlite:///./task_manager.db"
-engine = create_engine(DATABASE_URL)
-Base = declarative_base()
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-session = SessionLocal()
+CONN = sqlite3.connect(DATABASE_URL)
+CURSOR = CONN.cursor()
