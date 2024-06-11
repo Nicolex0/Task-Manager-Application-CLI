@@ -1,4 +1,4 @@
-from lib.models import session, User, Task
+from .models import session, User, Task
 
 # Helper functions for User model
 def create_user(username, email, password):

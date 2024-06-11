@@ -10,7 +10,7 @@ class Task(Base):
     name = Column(String, index=True)
     description = Column(String)
     priority = Column(Integer)
-    due_date = Column(Date)
+    due_date = Column(String)
     assigned_to = Column(Integer, ForeignKey('users.id'))
 
     assignee = relationship("User", back_populates="tasks")

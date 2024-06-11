@@ -1,11 +1,10 @@
 # lib/models/__init__.py
-from sqlalchemy import Column, Integer, String
-from .db import Base
+from .db import Base, session, engine
+from .user import User
+from .task import Task
 
-class User(Base):
-    __tablename__ = "users"
+# Create the database tables
+Base.metadata.create_all(bind=engine)
 
-    id = Column(Integer, primary_key=True, index=True)
-    username = Column(String, unique=True, index=True)
-    email = Column(String, unique=True, index=True)
-    password = Column(String)
+__all__ = ["User", "Task", "session", "Base"]
+
