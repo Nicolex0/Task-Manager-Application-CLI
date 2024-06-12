@@ -7,6 +7,7 @@ def create_user(username, email, password):
     session.commit()
     return user
 
+# Create function to get user by id
 def get_user_by_id(user_id):
     return session.query(User).filter(User.id == user_id).first()
 
